@@ -13,6 +13,8 @@ const publicDirectoryPath=path.join(__dirname, '../public');
 const app = express();
 app.use(express.static(publicDirectoryPath))
 
+const port=process.env.PORT || 3030 //first value will be provided by Heroku; locally we use port #3030
+
 
 //setup handlebars engine and views location
 // app.set('view engine','hbs');//dynamic template
@@ -58,6 +60,6 @@ app.use(express.static(publicDirectoryPath))
 //     res.render('404',{message: 'page not found'})
 // })
 
-app.listen(3030,()=>{
-    console.log('server is up on port 3000.')
-})
+app.listen(port,()=>{
+    console.log('server is up on port' + port)
+});
